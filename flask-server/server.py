@@ -4,7 +4,8 @@ from flask_cors import CORS
 
 ########################## GLOBAL VARIABLES ##########################
 
-journal = ''
+# each journal post will be a dictionary
+journal_posts = []
 
 
 ######################################################################
@@ -22,8 +23,13 @@ def get_data():
 @app.route("/postData", methods=['POST'])
 def post_data():
     data = flask.request.json
-    title = data.get('title', '')
-    print('Received journal data: ', title)
+    tmp_journal_post = {}
+    tmp_journal_post["topic"] = data.get('topic', '')
+    tmp_journal_post["body"] = data.get('body', '')
+    tmp_journal_post["date"] = data.get('date', '')
+    tmp_journal_post["timeTaken"] = data.get('timeTaken', '')
+    print('Received journal data: ', tmp_journal_post)
+    journal_posts.append(tmp_journal_post)
 
     response = flask.jsonify({'message': 'Data received successfully'})
     response.headers.add('Access-Control-Allow-Origin', '*')
