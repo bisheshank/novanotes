@@ -10,15 +10,18 @@ function App() {
     e.preventDefault();
     const journal = {title, body, author};
 
-    // fetch('http://localhost:4998/members', {
-    //   method: 'POST',
-    //   headers:
-    // })
+    fetch('http://localhost:4997/postData', {
+      method: 'POST',
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(journal)
+    }).then(() => {
+      console.log('new journal added');
+    })
     // console.log(journal);
   }
 
   useEffect(() => {
-    fetch("http://localhost:4998/members").then(
+    fetch("http://localhost:4997/getData").then(
       res => res.json()
     ).then(
       data => {
@@ -31,7 +34,7 @@ function App() {
   return (
     <div className="app">
       <h2>Add a New Blog</h2>
-      <form>
+      <form onSubmit={handleSubmit}>
         <label>Journal title</label>
         <input 
           type='text'
