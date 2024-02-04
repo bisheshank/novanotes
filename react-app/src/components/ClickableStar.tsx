@@ -21,6 +21,7 @@ const ClickableStar: React.FC<ClickableStarProps> = ({
   const [showMessage, setShowMessage] = useState(false);
   const [data, setData] = useState<string[]>([]);
   const [msg, setMsg] = useState('');
+  const [msg2, setMsg2] = useState('');
 
   const [buttonStyle, setButtonStyle] = useState<React.CSSProperties>({
     position: "absolute",
@@ -102,6 +103,9 @@ const ClickableStar: React.FC<ClickableStarProps> = ({
       if (event.key === "2") {
         setMsg('I see their point.');
       }
+      if (event.key === "3") {
+        setMsg2("I'm over it.");
+      }
     };
 
     document.addEventListener("keydown", handleKeyPress);
@@ -139,7 +143,7 @@ const ClickableStar: React.FC<ClickableStarProps> = ({
           <p></p>
           Stage 3: {msg}
           <p></p>
-          Stage 4:
+          Stage 4: {msg2}
           {/* {stage} */}
 
         </Modal.Body>
