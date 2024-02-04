@@ -21,7 +21,10 @@ function Journal() {
   const [topic, setTopic] = useState("");
   const [body, setBody] = useState("");
   const [date, setDate] = useState(currentDate);
-  const [timeTaken, setTimeTaken] = useState("0:00");
+  const [timeTaken, setTimeTaken] = useState(0);
+  const [stageNumber, setStageNumber] = useState(0);
+  const [id, setId] = useState(0);
+
   const [journalPost, setJournalPost] = useState<JournalPost>({
     topic: "",
     body: "",
@@ -64,10 +67,11 @@ function Journal() {
   };
 
   useEffect(() => {
-    fetch("http://localhost:4997/getDataJournal")
+    fetch("http://localhost:4997/getDataMain")
       .then((res) => res.json())
       .then((data) => {
-        setData(data.members || []);
+        // setData(data.members || []);
+        console.log("HELLOOOOO");
         console.log(data);
       });
   }, []);
@@ -83,6 +87,7 @@ function Journal() {
   useEffect(() => {
     if (typingStarted && (minutes > 0 || seconds > 0)) {
       const interval = setInterval(() => {
+        setTimeTaken((timeTaken) => timeTaken + 1);
         setTypingTimer((prevTimer) => prevTimer - 1);
 
         if (typingTimer <= 1) {
@@ -132,10 +137,10 @@ function Journal() {
           <input
             className="prompt"
             type="text"
-            required
+            // required
             value={topic}
             onChange={(e) => setTopic(e.target.value)}
-            placeholder="Session 1"
+            placeholder="Friends argument"
           />
           <p></p>
           <textarea
@@ -151,8 +156,8 @@ function Journal() {
           <div className='myButton'>
             <button style={{color:"cyan", backgroundColor:"red"}}>End Session</button>
           </div>
-          <p>{topic}</p>
-          <p>{body}</p>
+          {/* <p>{topic}</p>
+          <p>{body}</p> */}
           <div style={timerStyle}>
             <span>{`${String(minutes).padStart(2, '0')}:${String(seconds).padStart(2, '0')}`}</span>
           </div>

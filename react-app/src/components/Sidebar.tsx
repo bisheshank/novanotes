@@ -26,40 +26,40 @@ const Sidebar: React.FC<SidebarProps> = (props) => {
       <div className="chat-log">
         {/* Chat messages */}
         <div className="message received">
-          <p>Hi there!</p>
+          <p>Journal 1</p>
         </div>
         <div className="message sent">
-          <p>Hello!</p>
+          <p>Journal 2</p>
         </div>
         <div className="message received">
-          <p>Hello!</p>
+          <p>Friends argument</p>
         </div>
         <div className="message sent">
-          <p>Hello!</p>
+          <p>Journal 4</p>
         </div>
         <div className="message received">
-          <p>Hello!</p>
+          <p>Journal 5</p>
         </div>
         <div className="message sent">
-          <p>Hello!</p>
+          <p>Journal 6</p>
         </div>
         <div className="message sent">
-          <p>Hello!</p>
+          <p>Journal 7</p>
         </div>
         <div className="message sent">
-          <p>Hello!</p>
+          <p>Journal 8</p>
         </div>
         <div className="message sent">
-          <p>Hello!</p>
+          <p>Journal 9</p>
         </div>
         <div className="message sent">
-          <p>Hello!</p>
+          <p>Journal 10</p>
         </div>
         <div className="message sent">
-          <p>Hello!</p>
+          <p>Journal 11</p>
         </div>
         <div className="message sent">
-          <p>Hello!</p>
+          <p>Journal 12</p>
         </div>
         {/* Add more chat messages as needed */}
       </div>

@@ -15,10 +15,10 @@ const Main: React.FC<MainProps> = () => {
 
   // Define button coordinates relative to the center
   const buttonCoordinates: { [key: string]: { top: number; left: number } } = {
-    "button-1": { top: centerY - 100, left: centerX - 250 },
-    "button-2": { top: centerY + 150, left: centerX },
-    "button-3": { top: centerY - 250, left: centerX + 300 }, // left
-    "button-4": { top: centerY - 300, left: centerX },
+    "-1": { top: centerY - 100, left: centerX - 250 },
+    "-2": { top: centerY + 150, left: centerX },
+    "-3": { top: centerY - 250, left: centerX + 300 }, // left
+    "-4": { top: centerY - 300, left: centerX },
     // Add more buttons with coordinates as needed
   };
 
@@ -63,10 +63,10 @@ const Main: React.FC<MainProps> = () => {
   }));
 
   const edges = [
-    { from: "button-1", to: "button-2" },
-    { from: "button-2", to: "button-3" },
-    { from: "button-3", to: "button-1" }, // Closing the triangle
-    { from: "button-1", to: "button-4" },
+    { from: "-1", to: "-2" },
+    { from: "-2", to: "-3" },
+    { from: "-3", to: "-1" }, // Closing the triangle
+    { from: "-1", to: "-4" },
     // Add more edges as needed
   ];
 

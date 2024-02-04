@@ -19,6 +19,8 @@ const ClickableStar: React.FC<ClickableStarProps> = ({
   const [isActive, setIsActive] = useState(false);
   const [isHovered, setIsHovered] = useState(false);
   const [showMessage, setShowMessage] = useState(false);
+  const [data, setData] = useState<string[]>([]);
+  const [msg, setMsg] = useState('');
 
   const [buttonStyle, setButtonStyle] = useState<React.CSSProperties>({
     position: "absolute",
@@ -82,10 +84,23 @@ const ClickableStar: React.FC<ClickableStarProps> = ({
   }
 
   useEffect(() => {
+    fetch("http://localhost:4997/getDataMain")
+      .then((res) => res.json())
+      .then((data) => {
+        setData(data);
+        console.log(data);
+      });
+  }, []);
+
+  useEffect(() => {
     const handleKeyPress = (event: KeyboardEvent) => {
       if (event.key === "1") {
         setIsActive((prev) => !prev);
         setShowMessage(false);
+      }
+
+      if (event.key === "2") {
+        setMsg('I see their point.');
       }
     };
 
@@ -110,15 +125,21 @@ const ClickableStar: React.FC<ClickableStarProps> = ({
 
       <Modal show={showMessage} onHide={handleCloseMessage}>
         <Modal.Header closeButton>
-          <Modal.Title>Star {id} Clicked!</Modal.Title>
+          <Modal.Title>Star{id}!</Modal.Title>
         </Modal.Header>
         <Modal.Body>
-          Topic name: Bad grades {/* {topic} */}
+          Topic name: Friends argument {/* {topic} */}
           <p></p>
           Date: 8/15 - 8/17
           {/* {date_range} */}
           <p></p>
-          Stage: 3
+          Stage 1: I fought with friends.
+          <p></p>
+          Stage 2: I'm not talking to them.
+          <p></p>
+          Stage 3: {msg}
+          <p></p>
+          Stage 4:
           {/* {stage} */}
 
         </Modal.Body>

@@ -25,11 +25,20 @@ def get_data_journal():
 @app.route("/postDataJournal", methods=['POST'])
 def post_data_journal():
     data = flask.request.json
+    
     tmp_journal_post = {}
     tmp_journal_post["topic"] = data.get('topic', '')
     tmp_journal_post["body"] = data.get('body', '')
     tmp_journal_post["date"] = data.get('date', '')
     tmp_journal_post["timeTaken"] = data.get('timeTaken', '')
+    # tmp_journal_post["stageNumber"] = data.get('stageNumber', '')
+
+    # id = data.get('id', '')
+    # if id in journal_posts:
+    #     journal_posts[id].append(tmp_journal_post)
+    # else:
+    #     journal_posts[id] = [tmp_journal_post]
+
     print("POST_DATA_JOURNAL WORKED!!!")
     print('Received journal data: ', tmp_journal_post)
     journal_posts.append(tmp_journal_post)
