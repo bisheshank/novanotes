@@ -20,7 +20,19 @@ const App: React.FC<AppProps> = () => {
     // Add more buttons with coordinates as needed
   };
 
+
   const [buttonData, setButtonData] = useState<{ [key: string]: boolean }>({});
+
+  // Function to update button coordinates
+  const updateButtonCoordinates = () => {
+    setButtonCoordinates(prevCoordinates => ({
+      ...prevCoordinates,
+      "button-1": { top: centerY - 150, left: centerX - 150 },
+      "button-2": { top: centerY + 150, left: centerX - 100 },
+      "button-3": { top: centerY - 300, left: centerX + 150 },
+      "button-4": { top: centerY, left: centerX - 200 },
+    }));
+  };
 
   useEffect(() => {
     // Fetch button active data from the backend or set default values
@@ -34,7 +46,6 @@ const App: React.FC<AppProps> = () => {
         console.error("Error fetching button data:", error);
       }
     };
-
     fetchButtonData();
   }, []);
 
@@ -55,7 +66,7 @@ const App: React.FC<AppProps> = () => {
 
   return (
     <div className="app-container">
-      <Sidebar />
+      <Sidebar onJournalClick={updateButtonCoordinates} /> 
       <GraphComponent buttons={buttons} edges={edges} />
     </div>
   );

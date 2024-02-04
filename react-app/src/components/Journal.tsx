@@ -91,7 +91,7 @@ function Journal() {
         setTypingTimer((prevTimer) => prevTimer - 1);
 
         if (typingTimer <= 1) {
-          console.log("fart");
+          console.log("logging");
         }
 
         if (seconds > 0) {
@@ -118,15 +118,21 @@ function Journal() {
     backgroundColor: "black",
   };
 
-  const timerStyle = {
-    display: 'flex',
-    justifyContent: 'center',
-    alignItems: 'center',
-    width: '10vh',
-    height: '7vh', // Optional: Adjust the height based on your requirements
-    margin: '00px',
-    backgroundColor: "#4287f5",
-  };
+const timerStyle = {
+  display: 'flex',
+  justifyContent: 'center',
+  alignItems: 'center',
+  padding: '12px 24px', // Slightly more padding for a balanced appearance
+  backgroundColor: "#007bff", // A strong, attention-grabbing background color
+  color: 'white', // High contrast text color for readability
+  borderRadius: '5px', // Subtle rounded corners for a modern look
+  fontSize: '20px', // Large font size for easy reading from a distance
+  fontFamily: 'monospace', // Monospace font mimics digital timer displays
+  margin: '20px auto', // Centered margin, especially useful if within a flex container
+  minWidth: '120px', // Minimum width to accommodate typical timer content without squeezing
+  boxShadow: '0 4px 8px rgba(0, 0, 0, 0.1)', // Soft shadow for depth
+  textAlign: 'center', // Ensure text alignment is centered, useful if the content changes size
+};
 
   return (
     <div className="app-container">
@@ -154,12 +160,14 @@ function Journal() {
           ></textarea>
           <p></p>
           <div className='myButton'>
-            <button style={{color:"cyan", backgroundColor:"red"}}>End Session</button>
+            <button>End Session</button>
           </div>
           {/* <p>{topic}</p>
           <p>{body}</p> */}
-          <div style={timerStyle}>
+          <div style={{ display: 'flex', justifyContent: 'center', width: '100%' }}>
+          <div class="timerStyle" style={timerStyle}>
             <span>{`${String(minutes).padStart(2, '0')}:${String(seconds).padStart(2, '0')}`}</span>
+          </div>
           </div>
         </form>
 

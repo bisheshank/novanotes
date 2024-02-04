@@ -4,17 +4,18 @@ import "./Sidebar.css";
 
 interface SidebarProps {
   // Add any props you need for the sidebar
+  onJournalClick: () => void; 
 }
 
-const Sidebar: React.FC<SidebarProps> = (props) => {
-  const handleButtonClick = (buttonId: string) => {
-    // Implement your button click logic here
-    console.log(`Button ${buttonId} clicked`);
-  };
-
+const Sidebar: React.FC<SidebarProps> = ({ onJournalClick }) => {
   const chatName = "Henry";
   const chatHandle = "@henry";
   const stars = 5; // You can set the initial stars
+
+  const handleJournalClick = () => {
+    console.log(onJournalClick());
+    onJournalClick();
+  };
 
   return (
     <div className="sidebar">
@@ -28,10 +29,10 @@ const Sidebar: React.FC<SidebarProps> = (props) => {
         <div className="message received">
           <p>Journal 1</p>
         </div>
-        <div className="message sent">
+        <div className="message sent" onClick={() => handleJournalClick()}>
           <p>Journal 2</p>
         </div>
-        <div className="message received">
+        <div className="message received" onClick={() => handleJournalClick()}>
           <p>Friends argument</p>
         </div>
         <div className="message sent">

@@ -1,98 +1,104 @@
 .textbox-input {
-  width: 100vh;
-  height: 50vh;
-  resize: none;
-  color: black;
+  width: 100%; /* Adjusted width for better responsiveness */
+  height: 40vh; /* Adjusted height */
+  resize: vertical; /* Allows only vertical resizing */
+  color: #333; /* Darker text for better contrast */
   background-color: #ffffff;
-  padding-left: 3px; /* Adjust the padding as needed */
-  padding-top: 5px;
-  margin: 0; /* Ensure there's no margin */
-  border: none; /* Remove default border */
-  outline: none; /* Remove default outline */
-  box-sizing: border-box; /* Include padding and border in the total width/height */
-  position: relative;
+  padding: 10px; /* Unified padding */
+  margin: 20px 0; /* Added some margin for spacing */
+  border: 2px solid #d0d7de; /* Subtle border color */
+  border-radius: 8px; /* Rounded corners */
+  outline: none;
+  box-sizing: border-box;
 }
 .textbox-input::placeholder {
-  color: black; /* Set placeholder text color to white */
+  color: #bbb; /* Lighter color for placeholder text */
 }
-
 .prompt {
-  color: black;
-  width: 100vh;
-  height: 5vh;
-}
-
-.button2 {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 140px;
-  height: 30px;
+  width: 100vh; /* Responsive width */
+  height: 50px; /* Fixed height for uniformity */
+  padding: 10px;
+  margin-bottom: 10px; /* Space between elements */
+  border: 2px solid #d0d7de;
   border-radius: 8px;
-  background-color: #F0F0F0;
-  border: none;
   outline: none;
-  cursor: pointer;
-  position: relative;
-  height: '100vh';
+  color: #333;
+  background-color: #ffffff;
 }
-
 .sidebar2 {
-  height: 80%;
-  width: 250px;
+  width: 300px;
+  height: 100vh;
   background-color: #333;
   color: #fff;
   padding: 20px;
-  box-sizing: border-box;
-  position: fixed;
-  left: 0%;
-  top: 50%;
-  transform: translate(-25%, -50%);
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0px 0px 15px 0px rgba(255, 255, 255, 0.5); /* White box shadow */
+}
+.myButton button {
+  font-size: 16px; /* Clear, readable font size */
+  padding: 12px 24px; /* Ample padding for easier clickability */
+  background-color: #d9534f; /* A slightly red color, less intense than pure red */
+  color: white; /* Text color for contrast and readability */
+  border: none; /* No border for a modern, flat design */
+  border-radius: 5px; /* Slightly rounded corners for a softer look */
+  cursor: pointer; /* Cursor change to indicate clickability */
+  transition: background-color 0.3s ease; /* Smooth transition for hover effect */
+  display: inline-flex; /* Use inline-flex for centering text */
+  justify-content: center;
+  align-items: center;
+  text-align: center; /* Ensure text is centered */
+  width: auto; /* Auto width based on content, for flexibility */
+  min-width: 160px; /* Minimum width for consistency across different texts/contents */
+  height: auto; /* Height based on content and padding */
+  line-height: 1.5; /* Optimal line height for readability */
+}
+
+.myButton button:hover {
+  background-color: #c9302c; /* Slightly darker shade of red on hover for interactive feedback */
 }
 
 .myButton {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  color: white;
-  height: 10vh;
-};
-
-.timerStyle {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 10vh;
-  height: 7vh;
-  margin: 00px;
-  background-color: #4287f5;
-};
-
-.myTimer {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 100px;
-  height: 100px;
-  /* border-radius: 50px; Use a single declaration for border-radius */
-  background-color: #4287f5 !important;
-  /* margin: 0; Ensure there's no margin */
-  border: 10px; /* Remove default border */
-  outline: none; /* Remove default outline */
-  resize: none;
-  position: relative;
-  text-align: center;
-
+  justify-content: center; /* Center the button container if it's flex */
+  display: flex; /* Flex display to center button horizontally */
 }
-.timerText {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  line-height: 200px; /* Set to the height of the container */
-  width: 15vh;
-  height: 10vh;
-  text-align: center;
-  background-color: #4287f5;
-  font-family: monospace;
-  font-size: 40px;
-}
+/
+/* .timerStyle { */
+/*   display: flex; */
+/*   justify-content: center; */
+/*   align-items: center; */
+/*   width: 10vh; */
+/*   height: 7vh; */
+/*   margin: 00px; */
+/*   background-color: #4287f5; */
+/* }; */
+/**/
+/* .myTimer { */
+/*   display: flex; */
+/*   justify-content: center; */
+/*   align-items: center; */
+/*   width: 100px; */
+/*   height: 100px; */
+/*   /* border-radius: 50px; Use a single declaration for border-radius */ */
+/*   background-color: #4287f5 !important; */
+/*   /* margin: 0; Ensure there's no margin */ */
+/*   border: 10px; /* Remove default border */ */
+/*   outline: none; /* Remove default outline */ */
+/*   resize: none; */
+/*   position: relative; */
+/*   text-align: center; */
+/* } */
+/* .timerText { */
+/*   display: flex; */
+/*   justify-content: center; */
+/*   align-items: center; */
+/*   line-height: 200px; /* Set to the height of the container */ */
+/*   width: 15vh; */
+/*   height: 10vh; */
+/*   text-align: center; */
+/*   background-color: #4287f5; */
+/*   font-family: monospace; */
+/*   font-size: 40px; */
+/* } */
+  /* Adjusting .timerStyle for a cleaner, ChatGPT-esque look */
+

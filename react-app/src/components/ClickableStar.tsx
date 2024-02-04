@@ -117,6 +117,45 @@ const ClickableStar: React.FC<ClickableStarProps> = ({
     };
   }, [id, isActive, onClick]);
 
+const chatLogStyle = {
+    maxHeight: '400px',
+    overflowY: 'auto',
+    padding: '10px',
+    display: 'flex',
+    flexDirection: 'column', // Change to column layout
+    alignItems: 'center', // Center items horizontally
+  };
+const userMessageStyle = {
+  backgroundColor: '#f0f0f0',
+  borderRadius: '5px',
+  padding: '8px',
+  marginBottom: '10px',
+  width: '400px', // Set a fixed width here
+};
+
+const topicStyle = {
+  borderRadius: '5px',
+  padding: '10px', // Increase the padding for more spacing
+  marginBottom: '10px',
+  width: '600px', // Set a fixed width here
+  fontWeight: 'bold', // Make it bold
+  fontSize: '20px',
+};
+const dateStyle= {
+  borderRadius: '5px',
+  marginBottom: '10px',
+  width: '600px', // Set a fixed width here
+  fontWeight: 'bold', // Make it bold
+};
+
+
+const lastUserMessageStyle = {
+  ...userMessageStyle,
+  backgroundColor: '#e5f2ff',
+  fontWeight: 'bold',
+};
+
+
   return (
     <div>
       <Button
@@ -130,30 +169,24 @@ const ClickableStar: React.FC<ClickableStarProps> = ({
       </Button>
 
       <Modal show={showMessage} onHide={handleCloseMessage}>
-        <Modal.Header closeButton>
+        <Modal.Header closeButton style={{ textAlign: 'center' }}>
           <Modal.Title>Star{id}!</Modal.Title>
         </Modal.Header>
-        <Modal.Body>
-          Topic name: Friends argument {/* {topic} */}
-          <p></p>
-          Date: 8/15 - 8/17
-          {/* {date_range} */}
-          <p></p>
-          Stage 1: I fought with friends.
-          <p></p>
-          Stage 2: I'm not talking to them.
-          <p></p>
-          Stage 3: {msg}
-          <p></p>
-          Stage 4: {msg2}
-          {/* {stage} */}
-
+        <Modal.Body style={{ textAlign: 'center' }}>
+          <div style={chatLogStyle}>
+            <div style={topicStyle}>Topic name: Friends argument</div>
+            <div style={dateStyle}>Date: 8/15 - 8/17</div>
+            <div style={userMessageStyle}>Stage 1: I fought with friends.</div>
+            <div style={userMessageStyle}>Stage 2: I'm not talking to them.</div>
+            <div style={userMessageStyle}>Stage 3: {msg}</div>
+            <div style={userMessageStyle}>Stage 4: {msg2}</div>
+          </div>
         </Modal.Body>
-        <Modal.Footer>
-          <Button variant="secondary" onClick={handleWriteJournal}>
-            {write}
-          </Button>
-        </Modal.Footer>
+      <Modal.Footer style={{ textAlign: 'center' }}>
+        <Button variant="secondary" onClick={handleWriteJournal} style={{ margin: 'auto' }}>
+          {write}
+        </Button>
+      </Modal.Footer>
       </Modal>
     </div>
   );
