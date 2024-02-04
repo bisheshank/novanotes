@@ -108,11 +108,12 @@ function Journal() {
     justifyContent: 'center',
     alignItems: 'center',
     height: '100vh', // Optional: Adjust the height based on your requirements
+    backgroundColor: "black",
   };
 
   return (
     <div style={containerStyle}>
-      <div className='sidebar'>
+      <div className='sidebar2'>
         <span>test</span>
       </div>
 
