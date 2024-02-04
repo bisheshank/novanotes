@@ -63,6 +63,12 @@ const Sidebar: React.FC<SidebarProps> = (props) => {
         </div>
         {/* Add more chat messages as needed */}
       </div>
+
+    <div className="points-tab" style={{ display: "flex", alignItems: "center", justifyContent: "center", margin: "10px 0px" }}>
+      <img src="/logo1.png" alt="Points" style={{ width: "30px", height: "30px", marginRight: "10px" }} />
+      <span className="points-font" style={{ fontSize: "20px" }}>{stars}</span>
+    </div>
+
       {/* Profile info */}
       <div className="profile-info">
         <h3>{chatName}</h3>
