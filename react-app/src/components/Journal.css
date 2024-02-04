@@ -1,0 +1,81 @@
+.textbox-input {
+  width: 100vh;
+  height: 50vh;
+  resize: none;
+  color: black;
+  background-color: #ffffff;
+  padding-left: 3px; /* Adjust the padding as needed */
+  padding-top: 5px;
+  margin: 0; /* Ensure there's no margin */
+  border: none; /* Remove default border */
+  outline: none; /* Remove default outline */
+  box-sizing: border-box; /* Include padding and border in the total width/height */
+  position: relative;
+}
+.textbox-input::placeholder {
+  color: black; /* Set placeholder text color to white */
+}
+
+.prompt {
+  color: white;
+  width: 100vh;
+  height: 5vh;
+}
+
+.button2 {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 140px;
+  height: 30px;
+  border-radius: 8px;
+  background-color: #F0F0F0;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  position: relative;
+  height: '100vh';
+}
+
+.sidebar2 {
+  height: 80%;
+  width: 250px;
+  background-color: #333;
+  color: #fff;
+  padding: 20px;
+  box-sizing: border-box;
+  position: fixed;
+  left: 0%;
+  top: 50%;
+  transform: translate(-25%, -50%);
+}
+
+.myButton {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  height: 10vh;
+};
+
+.timer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100px;
+  height: 100px;
+  border-radius: 50px; /* Use a single declaration for border-radius */
+  background-color: #4287f5 !important;
+  margin: 0; /* Ensure there's no margin */
+  border: none; /* Remove default border */
+  outline: none; /* Remove default outline */
+  resize: none;
+  position: relative;
+  text-align: center;
+
+}
+.timerText {
+  line-height: 100px; /* Set to the height of the container */
+  text-align: center;
+  /* font-family: monospace */
+}

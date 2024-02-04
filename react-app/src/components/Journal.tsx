@@ -27,7 +27,6 @@ function Journal() {
     date: currentDate,
     timeTaken: "0:00",
   });
-  const [text, setText] = useState('');
   const [minutes, setMinutes] = useState(20);
   const [seconds, setSeconds] = useState(0);
   const [typingStarted, setTypingStarted] = useState(false);
@@ -76,12 +75,8 @@ function Journal() {
     if (!typingStarted) {
       setTypingStarted(true);
     }
-    typingTimer = 10;
-    setText(event.target.value);
-  };
-
-  const handleButtonClick = () => {
-    // Add backend logic here
+    setTypingTimer(15);
+    setBody(event.target.value);
   };
 
   useEffect(() => {
@@ -107,60 +102,59 @@ function Journal() {
     }
   }, [typingStarted, minutes, seconds, typingTimer]);
 
+
+  const containerStyle = {
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center',
+    height: '100vh', // Optional: Adjust the height based on your requirements
+    backgroundColor: "black",
+  };
+
   return (
-    <div className='container'>
-      <div className='sidebar'>
+    <div style={containerStyle}>
+      <div className='sidebar2'>
         <span>test</span>
       </div>
 
       <div>
-        <form className='textbox'>
-          <label>
-            <textarea
-              value={text}
-              autoFocus={true}
-              onChange={inputLogic}
-              className='textbox-input'
-              wrap={'soft'}
-              placeholder="Start typing..."
-            />
-          </label>
-        </form>
-
-        <button onClick={handleButtonClick} className='button'>
-          <span className='button-text'>End session</span>
-        </button>
-
-        <div className='timer'>
-          <span className='timerText'>{`${String(minutes).padStart(2, '0')}:${String(seconds).padStart(2, '0')}`}</span>
-        </div>
-      </div>
-
-      <div className="app">
-        <h2>Add a New Journal</h2>
         <form onSubmit={handleSubmit}>
-          <label>Journal Topic</label>
           <input
+            className="prompt"
             type="text"
             required
             value={topic}
             onChange={(e) => setTopic(e.target.value)}
+            placeholder="Session 1"
           />
-          <label>Journal body:</label>
+          <p></p>
+          {/* <label className='prompt'>Journal body:</label> */}
+          {/* <p></p> */}
           <textarea
             required
             value={body}
-            onChange={(e) => setBody(e.target.value)}
+            onChange={inputLogic}
+            autoFocus={true}
+            className='textbox-input'
+            wrap={'soft'}
+            placeholder="Start typing..."
           ></textarea>
-          <button>Add Journal</button>
+          <p></p>
+          <div className='myButton'>
+            <button style={{color:"cyan", backgroundColor:"red"}}>End Session</button>
+          </div>
           <p>{topic}</p>
           <p>{body}</p>
         </form>
-        {data.length === 0 ? (
+        <div className='timer'>
+          <span className='timerText'>{`${String(minutes).padStart(2, '0')}:${String(seconds).padStart(2, '0')}`}</span>
+        </div>
+
+        {/* {data.length === 0 ? (
           <p>Loading...</p>
         ) : (
           data.map((member, i) => <p key={i}>{member}</p>)
-        )}
+        )} */}
       </div>
     </div>
   );
