@@ -1,0 +1,79 @@
+/* Sidebar.css */
+.sidebar {
+    width: 300px;
+    height: 100vh;
+    background-color: #121212; /* Matte black background color */
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .logo {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  .logo img {
+    width: 80px; /* Adjust the width as needed */
+  }
+  
+  .chat-log {
+    flex-grow: 1;
+    overflow-y: auto;
+  }
+  
+  .message {
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 8px;
+  }
+  
+  .received {
+    background-color: #1e1e1e; /* Dark gray for received messages */
+    color: #ffffff; /* White text color */
+    align-self: flex-start;
+  }
+  
+  .received:hover {
+    background-color: #2c2c2c; /* Darker gray on hover */
+  }
+  
+  .sent {
+    background-color: #2a2a2a; /* Darker gray for sent messages */
+    color: #ffffff; /* White text color */
+    align-self: flex-end;
+  }
+  
+  .sent:hover {
+    background-color: #383838; /* Darker gray on hover */
+  }
+  
+  button {
+    background-color: #121212; /* Matte black background color */
+    color: #ffffff; /* White text color */
+    border: none;
+    padding: 10px;
+    margin-top: 10px;
+    border-radius: 8px;
+    cursor: pointer;
+  }
+  
+  button:hover {
+    background-color: #2c2c2c; /* Darker gray on hover */
+  }
+
+
+.profile-info {
+    display: flex;
+    color: white;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 20px; /* Increased padding at the top of the profile info */
+    border-top: 2px solid #ffffff; /* Thicker white border at the top of the profile info */
+  }
+  
+  h3, p {
+    color: #ffffff; /* White text color for profile info text */
+    margin: 5px 0; /* Adjusted margin for better spacing */
+  }
+
