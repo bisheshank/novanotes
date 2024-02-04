@@ -31,14 +31,14 @@ const Main: React.FC<MainProps> = () => {
         setData(data);
         console.log(data);
       });
-  });
+  }, []);
 
   useEffect(() => {
     // Fetch button active data from the backend or set default values
     // Replace this with your actual backend API endpoint
     const fetchButtonData = async () => {
       try {
-        const response = await fetch("/api/buttonData");
+        const response = await fetch("http://localhost:4997/getDataMain");
         const data = await response.json();
         setButtonData(data);
       } catch (error) {
