@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
+import Sidebar from "./Sidebar";
 import './Journal.css';
 
 interface JournalPost {
@@ -36,7 +37,7 @@ function Journal() {
   useEffect(() => {
     // Create your journal_post object here with the updated date
     console.log(date);
-    setJournalPost({ ...journalPost, topic, body, timeTaken });
+    setJournalPost(journalPost);
   }, [topic, body, timeTaken, date, journalPost]);
 
   let navigate = useNavigate();
@@ -107,17 +108,26 @@ function Journal() {
     display: 'flex',
     justifyContent: 'center',
     alignItems: 'center',
+    width: '180vh',
     height: '100vh', // Optional: Adjust the height based on your requirements
     backgroundColor: "black",
   };
 
-  return (
-    <div style={containerStyle}>
-      <div className='sidebar2'>
-        <span>test</span>
-      </div>
+  const timerStyle = {
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center',
+    width: '10vh',
+    height: '7vh', // Optional: Adjust the height based on your requirements
+    margin: '00px',
+    backgroundColor: "#4287f5",
+  };
 
-      <div>
+  return (
+    <div className="app-container">
+      <Sidebar />
+
+      <div style={containerStyle}>
         <form onSubmit={handleSubmit}>
           <input
             className="prompt"
@@ -128,8 +138,6 @@ function Journal() {
             placeholder="Session 1"
           />
           <p></p>
-          {/* <label className='prompt'>Journal body:</label> */}
-          {/* <p></p> */}
           <textarea
             required
             value={body}
@@ -145,10 +153,16 @@ function Journal() {
           </div>
           <p>{topic}</p>
           <p>{body}</p>
+          <div style={timerStyle}>
+            <span>{`${String(minutes).padStart(2, '0')}:${String(seconds).padStart(2, '0')}`}</span>
+          </div>
         </form>
-        <div className='timer'>
-          <span className='timerText'>{`${String(minutes).padStart(2, '0')}:${String(seconds).padStart(2, '0')}`}</span>
-        </div>
+
+        <p></p>
+
+        {/* <div style={timerStyle}>
+          <span>{`${String(minutes).padStart(2, '0')}:${String(seconds).padStart(2, '0')}`}</span>
+        </div> */}
 
         {/* {data.length === 0 ? (
           <p>Loading...</p>

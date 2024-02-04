@@ -17,7 +17,7 @@
 }
 
 .prompt {
-  color: white;
+  color: black;
   width: 100vh;
   height: 5vh;
 }
@@ -58,16 +58,26 @@
   height: 10vh;
 };
 
-.timer {
+.timerStyle {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 10vh;
+  height: 7vh;
+  margin: 00px;
+  background-color: #4287f5;
+};
+
+.myTimer {
   display: flex;
   justify-content: center;
   align-items: center;
   width: 100px;
   height: 100px;
-  border-radius: 50px; /* Use a single declaration for border-radius */
+  /* border-radius: 50px; Use a single declaration for border-radius */
   background-color: #4287f5 !important;
-  margin: 0; /* Ensure there's no margin */
-  border: none; /* Remove default border */
+  /* margin: 0; Ensure there's no margin */
+  border: 10px; /* Remove default border */
   outline: none; /* Remove default outline */
   resize: none;
   position: relative;
@@ -75,7 +85,14 @@
 
 }
 .timerText {
-  line-height: 100px; /* Set to the height of the container */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  line-height: 200px; /* Set to the height of the container */
+  width: 15vh;
+  height: 10vh;
   text-align: center;
-  /* font-family: monospace */
+  background-color: #4287f5;
+  font-family: monospace;
+  font-size: 40px;
 }

@@ -73,7 +73,7 @@ const Main: React.FC<MainProps> = () => {
   return (
     <div className="app-container">
       <Sidebar />
-      <GraphComponent buttons={buttons} edges={edges} />
+      <GraphComponent buttons={buttons} edges={edges} onButtonClick={handleButtonClick}/>
     </div>
   );
 };

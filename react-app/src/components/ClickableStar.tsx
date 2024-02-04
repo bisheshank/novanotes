@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import Button from "react-bootstrap/Button";
 import Modal from "react-bootstrap/Modal";
 
@@ -23,8 +24,8 @@ const ClickableStar: React.FC<ClickableStarProps> = ({
     position: "absolute",
     top: `${position.top}px`,
     left: `${position.left}px`,
-    height: "40px",
-    width: "40px",
+    height: "30px",
+    width: "30px",
     borderRadius: "100%",
     borderColor: "#FFFFFF",
     background: "#ffffff",
@@ -65,7 +66,6 @@ const ClickableStar: React.FC<ClickableStarProps> = ({
 
   const handleButtonClick = () => {
     if (isActive) {
-      console.log("Button clicked");
       onClick(id);
       setShowMessage(true);
     }
@@ -74,6 +74,12 @@ const ClickableStar: React.FC<ClickableStarProps> = ({
   const handleCloseMessage = () => {
     setShowMessage(false);
   };
+
+  let navigate = useNavigate();
+  const handleWriteJournal = () => {
+    let path = "/journal";
+    navigate(path);
+  }
 
   useEffect(() => {
     const handleKeyPress = (event: KeyboardEvent) => {
@@ -107,11 +113,18 @@ const ClickableStar: React.FC<ClickableStarProps> = ({
           <Modal.Title>Star {id} Clicked!</Modal.Title>
         </Modal.Header>
         <Modal.Body>
-          <p>Additional information or content can be placed here.</p>
+          Topic name: Bad grades {/* {topic} */}
+          <p></p>
+          Date: 8/15 - 8/17
+          {/* {date_range} */}
+          <p></p>
+          Stage: 3
+          {/* {stage} */}
+
         </Modal.Body>
         <Modal.Footer>
-          <Button variant="secondary" onClick={handleCloseMessage}>
-            Close
+          <Button variant="secondary" onClick={handleWriteJournal}>
+            Write
           </Button>
         </Modal.Footer>
       </Modal>
