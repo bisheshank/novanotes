@@ -1,36 +1,55 @@
-import React from "react"
-import ClickableStar from "./ClickableStar"
+import React from "react";
+import ClickableStar from "./ClickableStar";
 
-const GraphComponent = ({ buttons, edges, onButtonClick }) => {
+interface Edge {
+  from: string;
+  to: string;
+}
+
+interface Button {
+  id: string;
+  label: string;
+  position: { top: number; left: number };
+}
+
+interface GraphComponentProps {
+  buttons: Button[];
+  edges: Edge[];
+  onButtonClick: (id: string) => void;
+}
+
+const GraphComponent: React.FC<GraphComponentProps> = ({
+  buttons,
+  edges,
+  onButtonClick,
+}) => {
   const renderEdges = () => {
     return edges.map((edge, index) => {
-      const fromButton = buttons.find(button => button.id === edge.from)
-      const toButton = buttons.find(button => button.id === edge.to)
+      const fromButton = buttons.find((button) => button.id === edge.from);
+      const toButton = buttons.find((button) => button.id === edge.to);
 
       if (fromButton && toButton) {
-        const edgeStyle = {
+        const edgeStyle: React.CSSProperties = {
           stroke: "url(#gradient)",
           strokeWidth: 8,
-          filter: "blur(5px)" // Add a slight blur for edge diffusion
-        }
+          filter: "blur(5px)", // Add a slight blur for edge diffusion
+        };
 
         return (
           <line
             key={index}
-            // Adjust these values based on button size
-            x1={fromButton.position.left + 20}
+            x1={fromButton.position.left + 20} // Adjust these values based on button size
             y1={fromButton.position.top + 20}
-            // Adjust these values based on button size
-            x2={toButton.position.left + 20}
+            x2={toButton.position.left + 20} // Adjust these values based on button size
             y2={toButton.position.top + 20}
             style={edgeStyle}
           />
-        )
+        );
       }
 
-      return null
-    })
-  }
+      return null;
+    });
+  };
 
   return (
     <div
@@ -38,10 +57,10 @@ const GraphComponent = ({ buttons, edges, onButtonClick }) => {
         position: "relative",
         height: "500px",
         width: "100%",
-        backgroundColor: "black"
+        backgroundColor: "black",
       }}
     >
-      {buttons.map(button => (
+      {buttons.map((button) => (
         <ClickableStar
           key={button.id}
           id={button.id}
@@ -57,7 +76,7 @@ const GraphComponent = ({ buttons, edges, onButtonClick }) => {
           left: 0,
           height: "100%",
           width: "100%",
-          pointerEvents: "none"
+          pointerEvents: "none",
         }}
       >
         <defs>
@@ -75,7 +94,7 @@ const GraphComponent = ({ buttons, edges, onButtonClick }) => {
         {renderEdges()}
       </svg>
     </div>
-  )
-}
+  );
+};
 
-export default GraphComponent
+export default GraphComponent;

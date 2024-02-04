@@ -1,13 +1,25 @@
-import React, { useState, useEffect } from "react"
-import Button from "react-bootstrap/Button"
-import Modal from "react-bootstrap/Modal"
+import React, { useState, useEffect } from "react";
+import Button from "react-bootstrap/Button";
+import Modal from "react-bootstrap/Modal";
 
-const ClickableStar = ({ id, label, position, onClick }) => {
-  const [isActive, setIsActive] = useState(false)
-  const [isHovered, setIsHovered] = useState(false)
-  const [showMessage, setShowMessage] = useState(false)
+interface ClickableStarProps {
+  id: string;
+  label: string;
+  position: { top: number; left: number };
+  onClick: (id: string) => void;
+}
 
-  const [buttonStyle, setButtonStyle] = useState({
+const ClickableStar: React.FC<ClickableStarProps> = ({
+  id,
+  label,
+  position,
+  onClick,
+}) => {
+  const [isActive, setIsActive] = useState(false);
+  const [isHovered, setIsHovered] = useState(false);
+  const [showMessage, setShowMessage] = useState(false);
+
+  const [buttonStyle, setButtonStyle] = useState<React.CSSProperties>({
     position: "absolute",
     top: `${position.top}px`,
     left: `${position.left}px`,
@@ -24,58 +36,59 @@ const ClickableStar = ({ id, label, position, onClick }) => {
     filter: "blur(10px)",
     mixBlendMode: "screen",
     transition: "filter 0.5s ease-in-out, box-shadow 0.3s ease-in-out", // Add transition for smooth effect
-    cursor: isHovered && isActive ? "pointer" : "default" // Set cursor based on hover and active state
-  })
+    cursor: isHovered && isActive ? "pointer" : "default", // Set cursor based on hover and active state
+  });
 
   const handleHover = () => {
-    setIsHovered(true)
+    setIsHovered(true);
     if (isActive) {
-      setButtonStyle(prevStyle => ({
+      setButtonStyle((prevStyle) => ({
         ...prevStyle,
         filter: "blur(20px)",
         boxShadow:
-          "0px 0px 40px 20px #ffffff, 0px 0px 70px 40px #ff00ff, 0px 0px 150px 80px #00ffff, 0px 0px 10px 5px rgba(255, 255, 255, 0.5)"
-      }))
+          "0px 0px 40px 20px #ffffff, 0px 0px 70px 40px #ff00ff, 0px 0px 150px 80px #00ffff, 0px 0px 10px 5px rgba(255, 255, 255, 0.5)",
+      }));
     }
-  }
+  };
 
   const handleMouseLeave = () => {
-    setIsHovered(false)
+    setIsHovered(false);
     if (isActive) {
-      setButtonStyle(prevStyle => ({
+      setButtonStyle((prevStyle) => ({
         ...prevStyle,
         filter: "blur(10px)",
         boxShadow:
-          "0px 0px 40px 20px #ffffff, 0px 0px 0px 0px #ff00ff, 0px 0px 150px 80px #00ffff"
-      }))
+          "0px 0px 40px 20px #ffffff, 0px 0px 0px 0px #ff00ff, 0px 0px 150px 80px #00ffff",
+      }));
     }
-  }
+  };
 
   const handleButtonClick = () => {
     if (isActive) {
-      onClick(id)
-      setShowMessage(true)
+      console.log("Button clicked");
+      onClick(id);
+      setShowMessage(true);
     }
-  }
+  };
 
   const handleCloseMessage = () => {
-    setShowMessage(false)
-  }
+    setShowMessage(false);
+  };
 
   useEffect(() => {
-    const handleKeyPress = (event) => {
+    const handleKeyPress = (event: KeyboardEvent) => {
       if (event.key === "1") {
-        setIsActive((prev) => !prev)
-        setShowMessage(false)
+        setIsActive((prev) => !prev);
+        setShowMessage(false);
       }
-    }
+    };
 
-    document.addEventListener("keydown", handleKeyPress)
+    document.addEventListener("keydown", handleKeyPress);
 
     return () => {
-      document.removeEventListener("keydown", handleKeyPress)
-    }
-  }, [id, isActive, onClick])
+      document.removeEventListener("keydown", handleKeyPress);
+    };
+  }, [id, isActive, onClick]);
 
   return (
     <div>
@@ -103,7 +116,7 @@ const ClickableStar = ({ id, label, position, onClick }) => {
         </Modal.Footer>
       </Modal>
     </div>
-  )
-}
+  );
+};
 
-export default ClickableStar
+export default ClickableStar;

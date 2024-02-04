@@ -1,16 +1,20 @@
 // Sidebar.tsx
-import React from "react"
-import "./Sidebar.css"
+import React from "react";
+import "./Sidebar.css";
 
-const Sidebar = props => {
-  const handleButtonClick = buttonId => {
+interface SidebarProps {
+  // Add any props you need for the sidebar
+}
+
+const Sidebar: React.FC<SidebarProps> = (props) => {
+  const handleButtonClick = (buttonId: string) => {
     // Implement your button click logic here
-    console.log(`Button ${buttonId} clicked`)
-  }
+    console.log(`Button ${buttonId} clicked`);
+  };
 
-  const chatName = "Henry"
-  const chatHandle = "@henry"
-  const stars = 5 // You can set the initial stars
+  const chatName = "Henry";
+  const chatHandle = "@henry";
+  const stars = 5; // You can set the initial stars
 
   return (
     <div className="sidebar">
@@ -70,7 +74,7 @@ const Sidebar = props => {
       </div>
       {/* Add more sidebar content as needed */}
     </div>
-  )
-}
+  );
+};
 
-export default Sidebar
+export default Sidebar;
