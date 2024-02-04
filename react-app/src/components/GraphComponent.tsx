@@ -55,7 +55,7 @@ const GraphComponent: React.FC<GraphComponentProps> = ({
     <div
       style={{
         position: "relative",
-        height: "500px",
+        height: "100%",
         width: "100%",
         backgroundColor: "black",
       }}

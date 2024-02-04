@@ -20,7 +20,7 @@ const Sidebar: React.FC<SidebarProps> = (props) => {
     <div className="sidebar">
       {/* Logo */}
       <div className="logo">
-        <img src="/path/to/your/logo.png" alt="Logo" />
+        <img src="/logo2.png" alt="Logo" style={{ width: "50px", height: "50px", objectFit: "contain" }} />
       </div>
       {/* Chat Log Structure */}
       <div className="chat-log">
@@ -67,10 +67,6 @@ const Sidebar: React.FC<SidebarProps> = (props) => {
       <div className="profile-info">
         <h3>{chatName}</h3>
         <p>{chatHandle}</p>
-        <div className="stars">
-          {/* Star icon */}
-          <button className="star-icon"></button>
-        </div>
       </div>
       {/* Add more sidebar content as needed */}
     </div>

@@ -15,10 +15,10 @@ const Main: React.FC<MainProps> = () => {
 
   // Define button coordinates relative to the center
   const buttonCoordinates: { [key: string]: { top: number; left: number } } = {
-    "button-1": { top: centerY - 100, left: centerX - 150 },
-    "button-2": { top: centerY + 50, left: centerX },
-    "button-3": { top: centerY - 150, left: centerX + 300 }, // left
-    "button-4": { top: centerY - 200, left: centerX },
+    "button-1": { top: centerY - 100, left: centerX - 250 },
+    "button-2": { top: centerY + 150, left: centerX },
+    "button-3": { top: centerY - 250, left: centerX + 300 }, // left
+    "button-4": { top: centerY - 300, left: centerX },
     // Add more buttons with coordinates as needed
   };
 
