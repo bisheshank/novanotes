@@ -22,6 +22,7 @@ const ClickableStar: React.FC<ClickableStarProps> = ({
   const [data, setData] = useState<string[]>([]);
   const [msg, setMsg] = useState('');
   const [msg2, setMsg2] = useState('');
+  const [write, setWrite] = useState('Write');
 
   const [buttonStyle, setButtonStyle] = useState<React.CSSProperties>({
     position: "absolute",
@@ -105,6 +106,7 @@ const ClickableStar: React.FC<ClickableStarProps> = ({
       }
       if (event.key === "3") {
         setMsg2("I'm over it.");
+        setWrite("Go Supernova");
       }
     };
 
@@ -149,7 +151,7 @@ const ClickableStar: React.FC<ClickableStarProps> = ({
         </Modal.Body>
         <Modal.Footer>
           <Button variant="secondary" onClick={handleWriteJournal}>
-            Write
+            {write}
           </Button>
         </Modal.Footer>
       </Modal>
