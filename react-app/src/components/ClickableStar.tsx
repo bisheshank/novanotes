@@ -63,7 +63,7 @@ const ClickableStar: React.FC<ClickableStarProps> = ({
         ...prevStyle,
         filter: "blur(10px)",
         boxShadow:
-          "0px 0px 30px 15px #ffffff, 0px 0px 0px 0px #ff00ff, 0px 0px 112.5px 60px #00ffff",
+          "0px 0px 24px 12px #ffffff, 0px 0px 0px 0px #ff00ff, 0px 0px 90px 48px #00ffff",
       }));
     }
   };
