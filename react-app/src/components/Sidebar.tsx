@@ -21,7 +21,7 @@ const Sidebar: React.FC<SidebarProps> = ({ onJournalClick }) => {
     <div className="sidebar">
       {/* Logo */}
       <div className="logo">
-        <img src="/logo2.png" alt="Logo" style={{ width: "50px", height: "50px", objectFit: "contain" }} />
+        <img src="/logo2.png" alt="Logo" style={{ width: "150px", height: "150px", objectFit: "contain" }} />
       </div>
       {/* Chat Log Structure */}
       <div className="chat-log">
